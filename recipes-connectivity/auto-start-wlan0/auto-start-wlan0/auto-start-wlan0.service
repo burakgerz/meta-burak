@@ -1,0 +1,12 @@
+[Unit]
+Description=auto-start-wlan0 service
+User=root
+After=multi-user.target
+
+[Service]
+ExecStart=/sbin/ifup wlan0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
