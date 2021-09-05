@@ -3,7 +3,7 @@ poky
 meta-openembedded
 meta-raspberrypi
 
-Add them to bblayers.conf
+Add this layer and meta-raspberry to bblayers.conf
 
 Add following to build/conf/local.conf in order to use systemd
 DISTRO_FEATURES_append = " systemd"
