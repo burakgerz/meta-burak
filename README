@@ -15,3 +15,6 @@ or create your own distro (later)
 
 To build bootable base image:
 MACHINE=raspberrypi3-64 bitbake core-image-base
+
+Write to sd card with:
+sudo bmaptool copy core-image-base-raspberrypi3-64.wic.bz2 /dev/mmcblk0
