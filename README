@@ -6,15 +6,29 @@ meta-raspberrypi
 Add this layer and meta-raspberry to bblayers.conf
 
 Add following to build/conf/local.conf in order to use systemd
+CONNECTIVITY_CHECK_URIS = "https://www.google.com/"
+
 DISTRO_FEATURES_append = " systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 
+# Disable rpi boot logo
+#DISABLE_RPI_BOOT_LOGO = "1"
+# To have u-boot load kernel image, set in your local.conf:
+RPI_USE_U_BOOT = "1"
+PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
+
 or create your own distro (later)
+
 
 To build bootable base image:
 MACHINE=raspberrypi3-64 bitbake core-image-base
 
 Write to sd card with:
+hardknot:
 sudo bmaptool copy core-image-base-raspberrypi3-64.wic.bz2 /dev/mmcblk0
+
+zeus:
+sudo dd if=core-image-base-raspberrypi3-64-20210917202704.rootfs.rpi-sdimg of=/dev/mmcblk0 bs=16M
+
