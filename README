@@ -19,7 +19,10 @@ VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 RPI_USE_U_BOOT = "1"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
 
-or create your own distro (later)
+#Enable UART. This will add conosle=serial0,115200 to kernel command line
+ENABLE_UART = "1"
+
+or instead of local conf, create your own machine config and distro config
 
 
 To build bootable base image:
