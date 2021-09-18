@@ -1,2 +1,2 @@
-CORE_IMAGE_EXTRA_INSTALL = " auto-start-wlan0"
+CORE_IMAGE_EXTRA_INSTALL = " auto-start-wlan0 openssh"
 
