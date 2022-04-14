@@ -33,7 +33,7 @@ hardknot:
 sudo bmaptool copy core-image-base-raspberrypi3-64.wic.bz2 /dev/mmcblk0
 
 zeus:
-sudo dd if=core-image-base-raspberrypi3-64-20210917202704.rootfs.rpi-sdimg of=/dev/mmcblk0 bs=16M
+sudo dd if=core-image-base-raspberrypi3-64.rootfs.rpi-sdimg of=/dev/mmcblk0 bs=16M
 
 
 You can easaly update u-boot by mounting the boot partition (/dev/mmcblk0p1) and replacing
