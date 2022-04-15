@@ -1,4 +1,7 @@
-INSTALL_INSTALL_append = " \
+IMAGE_FEATURES_append = " dev-pkgs \
+			  tools-debug "
+
+IMAGE_INSTALL_append = " \
 			auto-start-wlan0 \
 			openssh \
 			util-linux \
