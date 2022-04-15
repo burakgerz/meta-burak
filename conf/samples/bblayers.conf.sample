@@ -9,6 +9,6 @@ BBLAYERS ?= " \
   ##OEROOT##/meta \
   ##OEROOT##/meta-poky \
   ##OEROOT##/meta-yocto-bsp \
-  ##OEROOT##/meta-raspberrypi \
-  ##OEROOT##/meta-burak \
+  ##OEROOT##/../meta-raspberrypi \
+  ##OEROOT##/../meta-burak \
   "
