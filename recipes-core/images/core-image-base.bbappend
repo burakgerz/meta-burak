@@ -9,6 +9,6 @@ IMAGE_INSTALL_append = " \
 			procps \
 			dtc \
 			dbus \
-			lsb_release \
 			polkit \
+			lsb-release \
 			packagegroup-core-buildessential "
