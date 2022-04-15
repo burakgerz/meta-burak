@@ -3,30 +3,12 @@ poky
 meta-openembedded
 meta-raspberrypi
 
-Add this layer and meta-raspberry to bblayers.conf
-
-Add following to build/conf/local.conf in order to use systemd
-CONNECTIVITY_CHECK_URIS = "https://www.google.com/"
-
-DISTRO_FEATURES_append = " systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
-VIRTUAL-RUNTIME_init_manager = "systemd"
-VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
-
-# Disable rpi boot logo
-#DISABLE_RPI_BOOT_LOGO = "1"
-# To have u-boot load kernel image, set in your local.conf:
-RPI_USE_U_BOOT = "1"
-PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
-
-#Enable UART. This will add conosle=serial0,115200 to kernel command line
-ENABLE_UART = "1"
-
-or instead of local conf, create your own machine config and distro config
-
+Source oe-init-build-env and use config files in this repo
+TEMPLATECONF=meta-burak/conf/samples/ . poky/oe-init-build-env
+WIP: setting TEMPLATECONF... copy it manually into buildir
 
 To build bootable base image:
-MACHINE=raspberrypi3-64 bitbake core-image-base
+MACHINE=raspberrypi3-64-burak bitbake core-image-base
 
 Write to sd card with:
 hardknot:
