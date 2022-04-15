@@ -5,7 +5,10 @@ meta-raspberrypi
 
 Source oe-init-build-env and use config files in this repo
 TEMPLATECONF=meta-burak/conf/samples/ . poky/oe-init-build-env
-WIP: setting TEMPLATECONF... copy it manually into buildir
+
+Alternative, if TEMPLATECONF environment variable is not working:
+Edit poky/.templateconf file. It should have the full path of the conf files, e.g.
+TEMPLATECONF="/home/burak/yocto/meta-burak/conf/samples"
 
 To build bootable base image:
 MACHINE=raspberrypi3-64-burak bitbake core-image-base
