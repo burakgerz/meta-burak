@@ -1,4 +1,4 @@
-DESCRIPTION = "yo"
+DESCRIPTION = "Start wlan0 on boot"
 LICENSE = "CLOSED"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
@@ -16,8 +16,6 @@ FILES_${PN} += "${systemd_unitdir}/system/* \
                 ${sysconfdir}/network/* \
 "
 
-#ALLOW_EMPTY_${PN} = "1"
-# if rpm package is empty, it fails with cannot invoke dnf
 
 do_install_append() {
   install -d ${D}${systemd_unitdir}/system/
