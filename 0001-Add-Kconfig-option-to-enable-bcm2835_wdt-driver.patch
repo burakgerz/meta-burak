@@ -1,0 +1,43 @@
+From 524934869edbc5bb550ddec8192cbc07e04d4e78 Mon Sep 17 00:00:00 2001
+From: Burak Gerz <burakgerz@gmail.com>
+Date: Mon, 20 Sep 2021 20:19:51 +0200
+Subject: [PATCH] Add Kconfig option to enable bcm2835_wdt driver
+
+This lets you enabling your driver ported from linux kernel
+---
+ drivers/watchdog/Kconfig  | 10 ++++++++++
+ drivers/watchdog/Makefile |  2 ++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+index 4532a40e45..605a75f06e 100644
+--- a/drivers/watchdog/Kconfig
++++ b/drivers/watchdog/Kconfig
+@@ -237,4 +237,14 @@ config SPL_WDT
+ 	  Enable driver model for watchdog timer in SPL.
+ 	  This is similar to CONFIG_WDT in U-Boot.
+ 
++config BCM2835_WDT
++	bool "BURAK: Enable BCM2835/2836 watchdog driver"
++	select HW_WATCHDOG
++	help
++	  Say Y here to enable the BCM2835/2836 watchdog
++
++	  This provides basic infrastructure to support BCM2835/2836 watchdog
++	  hardware, with a max timeout of ~15secs.
++	  DRIVER IS IMPORTED FROM LINUX KERNEL
++
+ endmenu
+diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+index 01b8231f2b..f3ed2d2352 100644
+--- a/drivers/watchdog/Makefile
++++ b/drivers/watchdog/Makefile
+@@ -34,3 +34,5 @@ obj-$(CONFIG_WDT_SP805) += sp805_wdt.o
+ obj-$(CONFIG_WDT_STM32MP) += stm32mp_wdt.o
+ obj-$(CONFIG_WDT_TANGIER) += tangier_wdt.o
+ obj-$(CONFIG_WDT_XILINX) += xilinx_wwdt.o
++obj-$(CONFIG_BCM2835_WDT) += bcm2835_wdt.o
++
+-- 
+2.25.1
+

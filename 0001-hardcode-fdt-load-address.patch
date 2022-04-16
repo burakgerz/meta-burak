@@ -1,0 +1,29 @@
+From 0dcc2ec9d5295b702f5567d7a024c908b24f1683 Mon Sep 17 00:00:00 2001
+From: Burak Gerz <burakgerz@gmail.com>
+Date: Sat, 18 Sep 2021 00:00:53 +0200
+Subject: [PATCH] Hardcode load adress of fdt into RAM
+
+---
+ common/image-fdt.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/common/image-fdt.c b/common/image-fdt.c
+index eb552ca207..2d19018905 100644
+--- a/common/image-fdt.c
++++ b/common/image-fdt.c
+@@ -315,7 +315,11 @@ int boot_get_fdt(int flag, int argc, char * const argv[], uint8_t arch,
+ 			} else
+ #endif
+ 			{
+-				fdt_addr = simple_strtoul(select, NULL, 16);
++				/*
++				 * https://raspberrypi.stackexchange.com/a/70660
++				 * Load address to load into RAM seems to make problems...
++				 */
++				fdt_addr = 0x2000000;
+ 				debug("*  fdt: cmdline image address = 0x%08lx\n",
+ 				      fdt_addr);
+ 			}
+-- 
+2.25.1
+
