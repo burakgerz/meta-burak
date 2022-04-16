@@ -10,5 +10,6 @@ IMAGE_INSTALL_append = " \
 			dtc \
 			dbus \
 			polkit \
+			polkit-group-rule-datetime \
 			lsb-release \
 			packagegroup-core-buildessential "
