@@ -1,0 +1,7 @@
+Following error when adding bcm2835_wdt.c from v2019.1 to current u-boot staging area
+| /home/burak/yocto/build/tmp/work/raspberrypi3_64-poky-linux/u-boot/1_2021.01-r0/git/drivers/watchdog/bcm2835_wdt.c:33: multiple definition of `hw_watchdog_disable'; arch/arm/mach-bcm283x/built-in.o:/home/burak/yocto/build/tmp/work/raspberrypi3_64-poky-linux/u-boot/1_2021.01-r0/git/arch/arm/mach-bcm283x/reset.c
+
+
+barebox with zeus is only compiling in 32bit...
+First test following, to see if barebox runs on raspberry pi
+https://www.barebox.org/doc/latest/boards/bcm2835.html
